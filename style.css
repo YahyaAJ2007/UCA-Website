@@ -10,8 +10,7 @@ header{
     text-align: center;
 }
 nav{
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
     align-items: center;
     margin: 0 auto;
     width: 100%;
@@ -23,28 +22,122 @@ nav ul li{
 nav ul {
     list-style: none;
     display: flex;
-    background-color: #333;
-    padding: 0;
-    margin-top: 15px;
     justify-content: center;
+    gap: 10px;
+    background-color: #333;
+    padding: 10px;
 }
+
 nav ul li a {
+    padding: 10px 15px;
+    transition: 0.3s;
+    list-style: none;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background: #9e5d27;
+    color: white;
+}
+.hd {
+    position: relative;
+    height: 100vh;
+    background-image: url("images2.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.content h2 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    padding: 12px 25px;
+    background: #9e5d27;
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px;
-    display: block;
+    border-radius: 6px;
+    transition: 0.3s;
 }
-nav ul li a:hover {
-    color: #9e5d27;
+.Logo img {
+    width: 120px;
+    height: auto;
 }
-.hd{
+.faculties {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card {
+    width: 200px;
+    padding: 30px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: #9e5d27;
+    color: white;
+}
+.modal {
+    display: none; /* مخفية فالبداية */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: auto;
-    padding: 20px;
-    line-height: 1.8;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    justify-content: center;
+    align-items: center;
 }
-.Logo {
-    width: 150px;
-    margin-bottom: 10px;
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    width: 60%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
 }

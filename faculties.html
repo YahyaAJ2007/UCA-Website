@@ -1,11 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UCA-Faculties</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <section class="faculties">
+        <h2>Nos Facultés</h2>
+        <div class="cards">
+
+            <div class="card" onclick="showFaculty('science')">
+                Faculté des Sciences
+            </div>
+
+            <div class="card" onclick="showFaculty('medecine')">
+                Faculté de Médecine
+            </div>
+
+            <div class="card" onclick="showFaculty('ensa')">
+                ENSA
+            </div>
+
+            <div class="card" onclick="showFaculty('fst')">
+                FST
+            </div>
+        </div>
+    </section>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">x</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
+    <script>
+        function showFaculty(faculty) {
+            let content = "";
+
+            if (faculty === "science") {
+                content = `
+                    <h2>Faculté des Sciences</h2>
+                    <p>📍 Marrakech</p>
+                    <p>🎓 Filières: Maths, Physique, Informatique</p>
+                    <p>📅 La Faculté des Sciences Semlalia de Marrakech (FSSM), fondée en 1978, est un établissement d'enseignement supérieur de l'Université Cadi Ayyad (UCAM). Elle forme des étudiants en Physique, Chimie, Mathématiques, Informatique, Biologie et Géologie (licence, master, doctorat) et se concentre sur la recherche appliquée, la biodiversité, et l'innovation.</p>
+                `;
+            }
+
+            else if (faculty === "medecine") {
+                content = `
+                    <h2>Faculté de Médecine</h2>
+                    <p>📍 Marrakech</p>
+                    <p>🎓 La Faculté de Médecine et de Pharmacie de Marrakech (FMPM), fondée en 1999 (et initiée par feu Hassan II en 1994), est un établissement public supérieur d'enseignement et de recherche rattaché à l'Université Cadi Ayyad. Elle forme des médecins et pharmaciens, offrant une formation théorique et pratique rigoureuse pour répondre aux besoins de santé.</p>
+                `;
+            }
+
+            else if (faculty === "ensa") {
+                content = `
+                    <h2>ENSA Marrakech</h2>
+                    <p>🎓 Ingénierie: Informatique, Réseaux, Génie industriel</p>
+                    <p>📅 L'École Nationale des Sciences Appliquées de Marrakech (ENSA Marrakech), créée en 2000 et rattachée à l'Université Cadi Ayyad, est un établissement public supérieur de renom formant des ingénieurs d'État en 5 ans. Elle propose des spécialités en génie électrique, industriel, informatique et télécommunications.</p>
+                `;
+            }
+
+            else if (faculty === "fst") {
+                content = `
+                    <h2>FST Marrakech</h2>
+                    <p>🎓 Sciences et Techniques avancées</p>
+                    <p>📅 La Faculté des Sciences et Techniques de Marrakech (FST Marrakech), affiliée à l'Université Cadi Ayyad, est un établissement public marocain d'enseignement supérieur technique (créé en 1993). Elle forme des ingénieurs et cadres spécialisés (Licence, Master, Ingénieur d'État, Doctorat) dans des domaines scientifiques appliqués.</p>
+                `;
+            }
+
+            document.getElementById("modal-text").innerHTML = content;
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+</script>
 </body>
 </html>
