@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>UCA-Faculties</title>
+    <title>UCA - Facultés</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+
+<header>
     <nav class="navbar">
         <div class="logo-container">
             <img src="images.jpg" alt="UCA Logo" class="logo-img">
             <span class="logo-text">Université Cadi Ayyad</span>
         </div>
+
         <ul class="nav-links">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="faculties.html">Facultés</a></li>
@@ -19,84 +21,99 @@
             <li><a href="info.html">Infos</a></li>
         </ul>
     </nav>
-    </header>
-    <section class="faculties">
-        <div class="cover">
-            <div class="content">
-                <h1>Nos Facultés</h1>
-                <div class="line"></div>
-            </div>
-        </div>
+</header>
 
-        <div class="cards">
-
-            <div class="card" onclick="showFaculty('medecine')">
-                Faculté de Médecine
-            </div>
-
-            <div class="card" onclick="showFaculty('science')">
-                Faculté des Sciences
-            </div>
-
-            <div class="card" onclick="showFaculty('fst')">
-                FST
-            </div>
-
-            <div class="card" onclick="showFaculty('ensa')">
-                ENSA
-            </div>
-        </div>
-    </section>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">x</span>
-            <div id="modal-text"></div>
+<section class="faculties">
+    <div class="cover">
+        <div class="content">
+            <h1>Nos Facultés</h1>
+            <div class="line"></div>
         </div>
     </div>
-    <script>
-        function showFaculty(faculty) {
-            let content = "";
 
-            if (faculty === "medecine") {
-                content = `
-                    <h2>Faculté de Médecine</h2>
-                    <p>📍 Marrakech</p>
-                    <p>🎓 La Faculté de Médecine et de Pharmacie de Marrakech (FMPM), fondée en 1999 (et initiée par feu Hassan II en 1994), est un établissement public supérieur d'enseignement et de recherche rattaché à l'Université Cadi Ayyad. Elle forme des médecins et pharmaciens, offrant une formation théorique et pratique rigoureuse pour répondre aux besoins de santé.</p>
-                `;
-            }
+    <div class="cards">
+        <div class="card" onclick="showFaculty('medecine')">
+            <h3>Faculté de Médecine</h3>
+        </div>
 
-            else if (faculty === "science") {
-                content = `
-                    <h2>Faculté des Sciences</h2>
-                    <p>📍 Marrakech</p>
-                    <p>🎓 Filières: Maths, Physique, Informatique</p>
-                    <p>📅 La Faculté des Sciences Semlalia de Marrakech (FSSM), fondée en 1978, est un établissement d'enseignement supérieur de l'Université Cadi Ayyad (UCAM). Elle forme des étudiants en Physique, Chimie, Mathématiques, Informatique, Biologie et Géologie (licence, master, doctorat) et se concentre sur la recherche appliquée, la biodiversité, et l'innovation.</p>
-                `;
-            }
+        <div class="card" onclick="showFaculty('science')">
+            <h3>Faculté des Sciences</h3>
+        </div>
 
-            else if (faculty === "ensa") {
-                content = `
-                    <h2>ENSA Marrakech</h2>
-                    <p>🎓 Ingénierie: Informatique, Réseaux, Génie industriel</p>
-                    <p>📅 L'École Nationale des Sciences Appliquées de Marrakech (ENSA Marrakech), créée en 2000 et rattachée à l'Université Cadi Ayyad, est un établissement public supérieur de renom formant des ingénieurs d'État en 5 ans. Elle propose des spécialités en génie électrique, industriel, informatique et télécommunications.</p>
-                `;
-            }
+        <div class="card" onclick="showFaculty('fst')">
+            <h3>FST</h3>
+        </div>
 
-            else if (faculty === "fst") {
-                content = `
-                    <h2>FST Marrakech</h2>
-                    <p>🎓 Sciences et Techniques avancées</p>
-                    <p>📅 La Faculté des Sciences et Techniques de Marrakech (FST Marrakech), affiliée à l'Université Cadi Ayyad, est un établissement public marocain d'enseignement supérieur technique (créé en 1993). Elle forme des ingénieurs et cadres spécialisés (Licence, Master, Ingénieur d'État, Doctorat) dans des domaines scientifiques appliqués.</p>
-                `;
-            }
+        <div class="card" onclick="showFaculty('ensa')">
+            <h3>ENSA</h3>
+        </div>
+    </div>
+</section>
 
-            document.getElementById("modal-text").innerHTML = content;
-            document.getElementById("modal").style.display = "flex";
-        }
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-text"></div>
+    </div>
+</div>
 
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
+<script>
+const facultiesData = {
+
+    medecine: `
+        <h2>Faculté de Médecine</h2>
+        <p>📍 Marrakech</p>
+        <p>
+        Faculté de Médecine et de Pharmacie de Marrakech, fondée en 1999.
+        Elle forme des médecins et pharmaciens avec une formation théorique et pratique.
+        </p>
+    `,
+
+    science: `
+        <h2>Faculté des Sciences</h2>
+        <p>📍 Marrakech</p>
+        <p>🎓 Filières: Maths, Physique, Informatique</p>
+        <p>
+        Faculté des Sciences Semlalia, fondée en 1978.
+        Formation en licence, master et doctorat.
+        </p>
+    `,
+
+    ensa: `
+        <h2>ENSA Marrakech</h2>
+        <p>🎓 Génie Informatique, Réseaux, Industriel</p>
+        <p>
+        École d'ingénieurs créée en 2000.
+        Formation d'ingénieurs d'État en 5 ans.
+        </p>
+    `,
+
+    fst: `
+        <h2>FST Marrakech</h2>
+        <p>🎓 Sciences et Techniques</p>
+        <p>
+        Créée en 1993.
+        Formation en ingénierie, licence, master et doctorat.
+        </p>
+    `
+};
+
+function showFaculty(faculty) {
+    document.getElementById("modal-text").innerHTML = facultiesData[faculty];
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    let modal = document.getElementById("modal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
 </script>
 </body>
 </html>

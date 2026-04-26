@@ -1,18 +1,16 @@
-/* RESET */
+:root {
+    --gold-uca: #bc6f04;
+    --dark-overlay: rgba(0, 0, 0, 0.6);
+    --light-bg: #f9f9f9;
+    --transition: all 0.3s ease-in-out;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-/* VARIABLES */
-:root {
-    --gold-uca: #bc6f04;
-    --dark-overlay: rgba(0, 0, 0, 0.6);
-}
-
-/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -41,6 +39,7 @@
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .nav-links {
@@ -52,17 +51,18 @@
 .nav-links a {
     text-decoration: none;
     color: white;
-    transition: 0.3s;
+    font-weight: 500;
+    transition: var(--transition);
+    border-bottom: 2px solid transparent;
 }
 
 .nav-links a:hover {
     color: var(--gold-uca);
+    border-bottom: 2px solid var(--gold-uca);
 }
-
-/* HERO & COVER */
-.hero,
+.hero, 
 .faculties .cover {
-    height: 80vh;
+    height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,25 +76,42 @@
     background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url("images2.png");
 }
 
-.faculties .cover {
-    background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url("faculties.png");
-}
-
-/* CONTENT */
-.hero-content {
-    animation: fadeIn 1.5s ease;
-}
-
 .hero h1 {
     font-size: 60px;
+    margin-bottom: 10px;
 }
 
 .hero p {
     font-size: 20px;
-    margin: 20px 0;
+    margin-bottom: 30px;
 }
 
-/* BUTTONS */
+.faculties .cover {
+    background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url('faculties.png');
+}
+
+.faculties .cover h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#facultyModal .modal-content {
+    background: white; /* خلفية بيضاء صريحة */
+    color: #222; /* نص أسود/رمادي غامق */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#modal-text h2 {
+    color: var(--gold-uca); /* العنوان باللون الذهبي */
+    margin-bottom: 20px;
+}
+
+#modal-text p {
+    color: white; /* الوصف بلون رمادي مريح للعين */
+    line-height: 1.6;
+}
 .buttons {
     display: flex;
     justify-content: center;
@@ -105,24 +122,26 @@
     padding: 12px 25px;
     border-radius: 25px;
     text-decoration: none;
-    transition: 0.3s;
+    transition: var(--transition);
+    display: inline-block;
 }
 
-.primary {
+.btn.primary {
     background: var(--gold-uca);
     color: white;
 }
 
-.secondary {
+.btn.secondary {
     border: 2px solid white;
     color: white;
 }
 
 .btn:hover {
-    transform: scale(1.1);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* FACULTIES */
+/* 5. Faculties Cards Section */
 .faculties {
     padding-top: 80px;
 }
@@ -132,119 +151,252 @@
     height: 4px;
     background: var(--gold-uca);
     margin: 15px auto;
+    border-radius: 2px;
 }
 
-/* CARDS */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     padding: 50px 10%;
-    background: #f9f9f9;
+    background: var(--light-bg);
 }
 
 .card {
     background: white;
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 12px;
     border-bottom: 5px solid var(--gold-uca);
-    cursor: pointer;
+    color: #333; /* تغيير النص إلى رمادي غامق جداً للقراءة */
+    font-weight: 600;
     transition: 0.3s;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* إضافة ظل خفيف */
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     background: var(--gold-uca);
-    color: white;
+    color: white; /* عند التمرير فقط يتحول النص للأبيض */
 }
 
-/* STATS */
+/* 6. Stats Section */
 .stats-section {
     padding: 80px 10%;
     text-align: center;
+    background: #fff;
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
+    margin-bottom: 40px;
 }
 
 .stat-number {
     font-size: 3rem;
     color: var(--gold-uca);
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .stat-label {
+    font-size: 1.1rem;
     color: #555;
+    text-transform: capitalize;
 }
 
-/* MODAL */
+.more-stats {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold-uca);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.more-stats:hover {
+    gap: 20px;
+}
+
+/* ضبط الحاوية السوداء الخلفية للمودال */
 .modal {
-    display: none;
+    display: none; 
     position: fixed;
-    z-index: 2000;
+    z-index: 9999; /* رقم عالي جداً لضمان الظهور فوق كل شيء */
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px);
+    padding: 20px; /* مسافة أمان للجوال */
 }
 
-.modal-content {
-    background: white;
-    padding: 40px;
+/* ضبط إطار المحتوى الأبيض */
+/* تنسيق الحاوية الرئيسية */
+.stats-modal-content {
+    background-color: #f9f9f9 !important;
+    width: 90% !important;
+    max-width: 1150px !important;
+    padding: 60px 40px !important;
     border-radius: 20px;
-    width: 90%;
-    max-width: 600px;
     position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    border: none;
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: var(--gold-uca);
-    font-size: 25px;
-    cursor: pointer;
-}
-
-/* FULL STATS */
+/* شبكة بـ 4 أعمدة ثابتة */
 .full-stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+    width: 100%;
 }
 
+/* تنسيق البطاقة الفاخرة */
 .full-stat-card {
-    border-top: 3px solid var(--gold-uca);
-    padding: 20px;
+    background: #ffffff;
+    padding: 40px 15px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* ظل ناعم جداً */
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 210px;
 }
 
-/* ANIMATION */
+.full-stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(235, 232, 232, 0.1);
+}
+
+/* الأرقام باللون الذهبي */
+.full-stat-card h3 {
+    color: #bc6f04;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* النصوص */
+.full-stat-card p {
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* زر الإغلاق */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    color: #bc6f04;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* التجاوب مع الجوال */
+@media (max-width: 992px) {
+    .full-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+    .full-stats-grid { grid-template-columns: 1fr; }
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--gold-uca);
+}
+
+/* 8. Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.8s;
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.8s ease-out;
 }
 
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Delay for reveal items */
+.stat-item:nth-child(1) { transition-delay: 0.1s; }
+.stat-item:nth-child(2) { transition-delay: 0.3s; }
+.stat-item:nth-child(3) { transition-delay: 0.5s; }
+.stat-item:nth-child(4) { transition-delay: 0.7s; }
+/* تحسينات صفحة الإدارة */
+.governance-page { padding: 120px 10% 80px; background: #fafafa; }
+
+.gold-title { color: var(--gold-uca); font-size: 2.8rem; text-align: center; margin-bottom: 10px; }
+.divider { width: 80px; height: 4px; background: var(--gold-uca); margin: 20px auto 50px; }
+
+/* تصميم بطاقة الرئيس المتكامل */
+.president-profile {
+    display: flex; background: white; border-radius: 30px; overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08); margin-bottom: 80px;
+    align-items: stretch; border: 1px solid #eee;
+}
+
+.profile-image { position: relative; flex: 1; min-width: 350px; }
+.profile-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-details { flex: 1.5; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+.position-badge { 
+    background: rgba(188, 111, 4, 0.1); color: var(--gold-uca);
+    padding: 8px 20px; border-radius: 50px; font-weight: bold;
+    font-size: 0.85rem; width: fit-content; margin-bottom: 20px;
+}
+
+/* شبكة العمداء العصرية */
+.deans-modern-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;
+}
+
+.dean-card {
+    background: white; border-radius: 20px; overflow: hidden;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f0f0f0; box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.dean-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(188, 111, 4, 0.15); }
+
+.dean-img-box { height: 250px; width: 100%; overflow: hidden; }
+.dean-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.dean-card:hover .dean-img-box img { scale: 1.1; }
+
+.dean-info-box { padding: 25px; text-align: left; }
+.dean-role { color: var(--gold-uca); font-weight: 600; margin: 5px 0 15px; font-size: 0.95rem; }
+.dean-bio { font-size: 0.9rem; color: #777; line-height: 1.5; }

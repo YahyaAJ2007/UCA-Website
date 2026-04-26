@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="home-page">
 
 <header>
     <nav class="navbar">
         <div class="logo-container">
-            <img src="images.jpg" alt="UCA Logo" class="logo-img">
+            <img src="images.jpg" class="logo-img">
             <span class="logo-text">Université Cadi Ayyad</span>
         </div>
+
         <ul class="nav-links">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="faculties.html">Facultés</a></li>
@@ -28,6 +30,7 @@
     <div class="hero-content">
         <h1>Université Cadi Ayyad</h1>
         <p>Une université d'excellence au cœur de Marrakech</p>
+
         <div class="buttons">
             <a href="#" class="btn primary">Explorer</a>
             <a href="#" class="btn secondary">Admission</a>
@@ -37,109 +40,114 @@
 
 <section class="stats-section" id="stats-section">
     <div class="stats-grid">
+
         <div class="stat-item reveal">
-            <i class="fas fa-user-graduate" style="color: #bc6f04; font-size: 25px; margin-bottom: 10px;"></i>
+            <i class="fas fa-user-graduate"></i>
             <h2 class="stat-number" data-target="126000">0</h2>
             <p class="stat-label">Étudiants</p>
         </div>
+
         <div class="stat-item reveal">
-            <i class="fas fa-chalkboard-teacher" style="color: #bc6f04; font-size: 25px; margin-bottom: 10px;"></i>
+            <i class="fas fa-chalkboard-teacher"></i>
             <h2 class="stat-number" data-target="1801">0</h2>
             <p class="stat-label">Enseignants</p>
         </div>
+
         <div class="stat-item reveal">
-            <i class="fas fa-user-tie" style="color: #bc6f04; font-size: 25px; margin-bottom: 10px;"></i>
+            <i class="fas fa-user-tie"></i>
             <h2 class="stat-number" data-target="735">0</h2>
             <p class="stat-label">Administratifs</p>
         </div>
+
         <div class="stat-item reveal">
-            <i class="fas fa-book-open" style="color: #bc6f04; font-size: 25px; margin-bottom: 10px;"></i>
+            <i class="fas fa-book-open"></i>
             <h2 class="stat-number" data-target="301">0</h2>
             <p class="stat-label">Formations</p>
         </div>
+
     </div>
-    
+
     <div class="more-stats-container reveal">
         <div class="more-stats-link" onclick="openStatsModal()">
-            <span>Tous les chiffres</span>
-            <svg viewBox="0 0 24 24" class="arrow-icon">
-                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" fill="none"/>
-            </svg>
+            Tous les chiffres →
         </div>
     </div>
 </section>
 
-<div id="statsModal" class="modal">
-    <div class="modal-content stats-modal-content">
+<!-- MODAL -->
+<div id="statsModal" class="modal stats-modal">
+    <div class="modal-content">
         <span class="close" onclick="closeStatsModal()">&times;</span>
-        <h2 style="color: #bc6f04; margin-bottom: 30px; text-align: center;">Chiffres Clés de l'UCA</h2>
+
+        <h2>Chiffres Clés</h2>
+
         <div class="full-stats-grid">
             <div class="full-stat-card"><h3>126K</h3><p>Étudiants</p></div>
+            <div class="full-stat-card"><h3>1801</h3><p>Enseignants</p></div>
             <div class="full-stat-card"><h3>1 801</h3><p>Personnel pédagogique</p></div>
             <div class="full-stat-card"><h3>735</h3><p>Personnel administratif</p></div>
             <div class="full-stat-card"><h3>301</h3><p>Formations</p></div>
-            <div class="full-stat-card"><h3>292</h3><p>Conventions internationales</p></div>
             <div class="full-stat-card"><h3>77</h3><p>Structures de recherche</p></div>
-            <div class="full-stat-card"><h3>14</h3><p>Centres thématiques</p></div>
+            <div class="full-stat-card"><h3>14</h3><p>Centres thématiques de recherche</p></div>
             <div class="full-stat-card"><h3>4113</h3><p>Doctorants</p></div>
         </div>
     </div>
 </div>
 
-<script src="script.js"></script>
-</body>
-</html>
 <script>
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150; // المسافة التي يظهر بعدها العنصر
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", reveal);
+
+const counters = document.querySelectorAll('.stat-number');
+const speed = 200;
+
+const startCounters = () => {
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+};
+
+let started = false;
+window.addEventListener("scroll", () => {
+    const statsSection = document.getElementById('stats-section');
+    const sectionPos = statsSection.getBoundingClientRect().top;
+    const screenPos = window.innerHeight;
+
+    if (sectionPos < screenPos && !started) {
+        startCounters();
+        started = true;
+    }
+});
+
 function openStatsModal() {
     document.getElementById("statsModal").style.display = "flex";
 }
 function closeStatsModal() {
     document.getElementById("statsModal").style.display = "none";
 }
-
-// دالة العدادات المتحركة
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const updateCount = () => {
-            const count = +counter.innerText.replace('K', ''); // تنظيف النص إذا كان فيه K
-            const inc = target / 100; // سرعة العداد
-
-            if (count < target) {
-                let current = count + inc;
-                if (current >= target) {
-                    // التنسيق النهائي عند الوصول للهدف
-                    counter.innerText = target >= 1000 ? (target / 1000).toFixed(0) + 'K' : target;
-                } else {
-                    counter.innerText = Math.ceil(current);
-                    setTimeout(updateCount, 20);
-                }
-            }
-        };
-        updateCount();
-    });
-}
-
-// دالة الظهور عند التمرير
-function revealElements() {
-    const reveals = document.querySelectorAll('.reveal');
-    const windowHeight = window.innerHeight;
-    
-    reveals.forEach(reveal => {
-        const revealTop = reveal.getBoundingClientRect().top;
-        if (revealTop < windowHeight - 100) {
-            if (!reveal.classList.contains('active')) {
-                reveal.classList.add('active');
-                // إذا كان هذا القسم هو قسم الإحصائيات، شغل العدادات مرة واحدة
-                if (reveal.parentElement.parentElement.id === 'stats-section') {
-                     animateCounters();
-                }
-            }
-        }
-    });
-}
-
-window.addEventListener('scroll', revealElements);
-window.addEventListener('load', revealElements);
 </script>
+</body>
+</html>
