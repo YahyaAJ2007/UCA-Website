@@ -1,18 +1,26 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* VARIABLES */
+:root {
+    --gold-uca: #bc6f04;
+    --dark-overlay: rgba(0, 0, 0, 0.6);
+}
+
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: rgba(0, 0, 0, 0.3); /* خلفية شفافة لتعطي فخامة */
-    backdrop-filter: blur(10px); /* تأثير ضبابي خلف المنيو */
-    position: fixed; /* يظل ثابتاً عند النزول لأسفل */
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -33,7 +41,6 @@
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
-    letter-spacing: 1px;
 }
 
 .nav-links {
@@ -45,165 +52,79 @@
 .nav-links a {
     text-decoration: none;
     color: white;
-    font-weight: 500;
     transition: 0.3s;
-    border-bottom: 2px solid transparent;
-}
-:root {
-    --gold-uca: #bc6f04; 
-}
-.nav-links a:hover {
-    color: var(--gold-uca);
-    border-bottom: 2px solid var(--gold-uca);
 }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    background: 
-        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)),
-        url("images2.png");
-    background-size: cover;
-    background-position: center 20%; 
+.nav-links a:hover {
+    color: var(--gold-uca);
+}
+
+/* HERO & COVER */
+.hero,
+.faculties .cover {
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
+    background-size: cover;
+    background-position: center;
 }
+
+.hero {
+    background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url("images2.png");
+}
+
 .faculties .cover {
-    /* 1. ضبط الطول */
-    height: 120vh; /* أو اجعلها 40vh إذا كنت تفضلها أقصر */
-    
-    /* 2. إضافة التظليل والملء الكامل */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), /* تظليل داكن */
-        url('faculties.png'); /* اسم صورتك الجديدة */
-    background-size: cover; 
-    background-position: center 20%; 
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+    background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url("faculties.png");
 }
+
 /* CONTENT */
-.hero-content{
+.hero-content {
     animation: fadeIn 1.5s ease;
 }
 
-.hero h1{
+.hero h1 {
     font-size: 60px;
-    margin-bottom: 10px;
 }
 
-.hero p{
+.hero p {
     font-size: 20px;
-    margin-bottom: 30px;
+    margin: 20px 0;
 }
 
 /* BUTTONS */
-.buttons{
+.buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
-.buttons :hover{
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-.btn{
+
+.btn {
     padding: 12px 25px;
     border-radius: 25px;
     text-decoration: none;
     transition: 0.3s;
 }
 
-.primary{
-    background: #bc6f04;
+.primary {
+    background: var(--gold-uca);
     color: white;
 }
 
-.secondary{
+.secondary {
     border: 2px solid white;
     color: white;
 }
 
-.btn:hover{
+.btn:hover {
     transform: scale(1.1);
 }
 
-/* ANIMATION */
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform: translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform: translateY(0);
-    }
-}
-.cover{
-    height: 350px;
-    background: 
-        linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2)),
-        url("faculties.png");
-    background-size: cover;
-    background-position: center;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.content{
-    text-align: center;
-    color: white;
-    animation: fadeIn 1.2s ease-in-out;
-}
-
-.content h1{
-    font-size: 48px;
-    letter-spacing: 2px;
-}
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0, 0, 0, 0.4); /* شفافية */
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.overlay h1{
-    color: white;
-    font-size: 40px;
-    letter-spacing: 1px;
-}
+/* FACULTIES */
 .faculties {
-    padding-top: 80px; /* لترك مساحة للـ Header الثابت */
-}
-
-.cover {
-    height: 40vh;
-    background: linear-gradient(rgba(199, 126, 17, 0.8), rgba(0, 0, 0, 0.6)), url('images2.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.cover h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    padding-top: 80px;
 }
 
 .line {
@@ -211,84 +132,75 @@
     height: 4px;
     background: var(--gold-uca);
     margin: 15px auto;
-    border-radius: 2px;
 }
+
+/* CARDS */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     padding: 50px 10%;
-    background: #f4f4f4;
+    background: #f9f9f9;
 }
 
 .card {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
-    border-bottom: 4px solid var(--gold-uca); 
-    font-weight: 600;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 30px;
+    border-radius: 15px;
+    border-bottom: 5px solid var(--gold-uca);
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     background: var(--gold-uca);
     color: white;
-    box-shadow: 0 8px 25px rgba(188, 111, 4, 0.3);
 }
 
-/* 3. تنسيق النافذة المنبثقة (Modal) */
+/* STATS */
+.stats-section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    color: var(--gold-uca);
+    font-weight: bold;
+}
+
+.stat-label {
+    color: #555;
+}
+
+/* MODAL */
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 2000;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.7);
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background-color: white;
+    background: white;
     padding: 40px;
     border-radius: 20px;
-    width: 60%;
+    width: 90%;
     max-width: 600px;
     position: relative;
-    animation: slideDown 0.4s ease-out;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #bc6f04;
-}
-
-#modal-text h2 {
-    color: #bc6f04;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-#modal-text p {
-    color: var(--gold-uca);
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
 }
 
 .close {
@@ -298,4 +210,41 @@
     color: var(--gold-uca);
     font-size: 25px;
     cursor: pointer;
+}
+
+/* FULL STATS */
+.full-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.full-stat-card {
+    border-top: 3px solid var(--gold-uca);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
