@@ -7,23 +7,29 @@
 </head>
 <body>
     <section class="faculties">
-        <h2>Nos Facultés</h2>
-        <div class="cards">
-
-            <div class="card" onclick="showFaculty('science')">
-                Faculté des Sciences
+        <div class="cover">
+            <div class="content">
+                <h1>Nos Facultés</h1>
+                <div class="line"></div>
             </div>
+        </div>
+
+        <div class="cards">
 
             <div class="card" onclick="showFaculty('medecine')">
                 Faculté de Médecine
             </div>
 
-            <div class="card" onclick="showFaculty('ensa')">
-                ENSA
+            <div class="card" onclick="showFaculty('science')">
+                Faculté des Sciences
             </div>
 
             <div class="card" onclick="showFaculty('fst')">
                 FST
+            </div>
+
+            <div class="card" onclick="showFaculty('ensa')">
+                ENSA
             </div>
         </div>
     </section>
@@ -37,20 +43,20 @@
         function showFaculty(faculty) {
             let content = "";
 
-            if (faculty === "science") {
+            if (faculty === "medecine") {
+                content = `
+                    <h2>Faculté de Médecine</h2>
+                    <p>📍 Marrakech</p>
+                    <p>🎓 La Faculté de Médecine et de Pharmacie de Marrakech (FMPM), fondée en 1999 (et initiée par feu Hassan II en 1994), est un établissement public supérieur d'enseignement et de recherche rattaché à l'Université Cadi Ayyad. Elle forme des médecins et pharmaciens, offrant une formation théorique et pratique rigoureuse pour répondre aux besoins de santé.</p>
+                `;
+            }
+
+            else if (faculty === "science") {
                 content = `
                     <h2>Faculté des Sciences</h2>
                     <p>📍 Marrakech</p>
                     <p>🎓 Filières: Maths, Physique, Informatique</p>
                     <p>📅 La Faculté des Sciences Semlalia de Marrakech (FSSM), fondée en 1978, est un établissement d'enseignement supérieur de l'Université Cadi Ayyad (UCAM). Elle forme des étudiants en Physique, Chimie, Mathématiques, Informatique, Biologie et Géologie (licence, master, doctorat) et se concentre sur la recherche appliquée, la biodiversité, et l'innovation.</p>
-                `;
-            }
-
-            else if (faculty === "medecine") {
-                content = `
-                    <h2>Faculté de Médecine</h2>
-                    <p>📍 Marrakech</p>
-                    <p>🎓 La Faculté de Médecine et de Pharmacie de Marrakech (FMPM), fondée en 1999 (et initiée par feu Hassan II en 1994), est un établissement public supérieur d'enseignement et de recherche rattaché à l'Université Cadi Ayyad. Elle forme des médecins et pharmaciens, offrant une formation théorique et pratique rigoureuse pour répondre aux besoins de santé.</p>
                 `;
             }
 
