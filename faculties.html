@@ -18,7 +18,7 @@
             <li><a href="index.html">Accueil</a></li>
             <li><a href="faculties.html">Facultés</a></li>
             <li><a href="admission.html">Admission</a></li>
-            <li><a href="info.html">Infos</a></li>
+            <li><a href="Administration.html">Administration</a></li>
         </ul>
     </nav>
 </header>
@@ -43,9 +43,14 @@
         <div class="card" onclick="showFaculty('fst')">
             <h3>FST</h3>
         </div>
-
         <div class="card" onclick="showFaculty('ensa')">
             <h3>ENSA</h3>
+        </div>
+        <div class="card" onclick="showFaculty('encg')">
+            <h3>ENCG</h3>
+        </div>
+        <div class="card" onclick="showFaculty('ens')">
+            <h3>ENS</h3>
         </div>
     </div>
 </section>
@@ -65,11 +70,24 @@ const facultiesData = {
         <h2>Faculté de Médecine</h2>
         <p>📍 Marrakech</p>
         <p>
-        Faculté de Médecine et de Pharmacie de Marrakech, fondée en 1999.
+        🎓 Faculté de Médecine et de Pharmacie de Marrakech, fondée en 1999.
         Elle forme des médecins et pharmaciens avec une formation théorique et pratique.
         </p>
     `,
-
+    ens: `
+        <h2>École Normale Supérieure</h2>
+        <p>📍 Marrakech</p>
+        <p>
+        🎓 Établissement public marocain de premier plan dédié à la formation initiale des enseignants du secondaire (collégial et qualifiant) et à l'éducation
+        </p>
+    `,
+    encg: `
+        <h2>École Nationale de Commerce et de Gestion</h2>
+        <p>📍 Marrakech</p>
+        <p>
+        🎓 Établissement public d'enseignement supérieur de renom, créé en 2004 et rattaché à l'Université Cadi Ayyad.
+        </p>
+    `,
     science: `
         <h2>Faculté des Sciences</h2>
         <p>📍 Marrakech</p>
@@ -82,6 +100,7 @@ const facultiesData = {
 
     ensa: `
         <h2>ENSA Marrakech</h2>
+        <p>📍 Marrakech</p>
         <p>🎓 Génie Informatique, Réseaux, Industriel</p>
         <p>
         École d'ingénieurs créée en 2000.
@@ -90,7 +109,8 @@ const facultiesData = {
     `,
 
     fst: `
-        <h2>FST Marrakech</h2>
+        <h2>FST</h2>
+        <p>📍 Marrakech</p>
         <p>🎓 Sciences et Techniques</p>
         <p>
         Créée en 1993.
