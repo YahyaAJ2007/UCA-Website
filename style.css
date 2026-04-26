@@ -29,15 +29,15 @@ nav ul {
 }
 
 nav ul li a {
+    color: white;
     padding: 10px 15px;
     transition: 0.3s;
     list-style: none;
     border-radius: 5px;
 }
-
 nav ul li a:hover {
+    text-decoration: underline;
     background: #9e5d27;
-    color: white;
 }
 .hd {
     position: relative;
