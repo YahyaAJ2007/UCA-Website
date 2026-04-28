@@ -60,8 +60,9 @@
     color: var(--gold-uca);
     border-bottom: 2px solid var(--gold-uca);
 }
+.hero,
 .faculties .cover {
-    height: 150vh;
+    height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
