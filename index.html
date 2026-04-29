@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta name="author" content="Yahya Ajbli">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Université Cadi Ayyad - Accueil</title>
@@ -106,7 +107,7 @@ function reveal() {
     for (var i = 0; i < reveals.length; i++) {
         var windowHeight = window.innerHeight;
         var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150; // المسافة التي يظهر بعدها العنصر
+        var elementVisible = 150; 
         if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add("active");
         }
@@ -215,7 +216,7 @@ function closeStatsModal() {
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 Université Cadi Ayyad. Tous droits réservés.</p>
+        <p>&copy; 2026 Université Cadi Ayyad. Tous droits réservés. <strong>Yahya Ajabli</strong></p>
     </div>
 </footer>
 
