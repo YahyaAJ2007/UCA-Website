@@ -517,7 +517,7 @@ body {
 }
 
 .admission-hero {
-    background: linear-gradient(135deg, rgba(188, 111, 4, 0.8), rgba(0, 0, 0, 0.8)), url('admission-bg.jpg');
+    background: linear-gradient(135deg, rgba(188, 111, 4, 0.8), rgba(0, 0, 0, 0.8)), url('acc.png');
     height: 50vh;
     border-radius: 0 0 50px 50px; 
     display: flex;
@@ -643,9 +643,13 @@ body {
 }
 
 .footer-logo {
-    width: 80px;
+    width: 120px;
     margin-bottom: 20px;
-    filter: brightness(0) invert(1); 
+    height: auto;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 10px;
+    filter: none !important;
 }
 
 .footer-column p {
@@ -714,4 +718,66 @@ body {
 .footer-bottom p {
     font-size: 0.85rem;
     color: #777;
+}
+
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 75px;        
+        right: 15px;      
+        width: 200px;     
+        background-color: #333; 
+        border: 2px solid white; 
+        border-radius: 10px;    
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex !important; 
+    }
+
+    .nav-links li {
+        list-style: none;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        color: white; 
+        text-decoration: none;
+        font-family: serif; 
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    #menu-icon {
+        background: none !important;   
+        border: none !important;        
+        padding: 0 !important;          
+        outline: none !important;      
+        box-shadow: none !important;    
+        font-size: 28px;              
+        color: #333;                   
+        cursor: pointer;
+    }
+
+    #menu-icon i {
+        background: transparent !important;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .menu-icon {
+        display: none; 
+    }
+
+    .nav-links {
+        display: flex !important; 
+        flex-direction: row; 
+        position: static;
+        background: none;
+    }
 }

@@ -15,7 +15,8 @@
                 <img src="images.jpg" alt="UCA Logo" class="logo-img">
                 <span class="logo-text">Université Cadi Ayyad</span>
             </div>
-            <ul class="nav-links">
+            <button class="menu-icon" id="menu-icon"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="faculties.html">Facultés</a></li>
                 <li><a href="admission.html">Admission</a></li>
@@ -149,6 +150,13 @@
         <p>&copy; 2026 Université Cadi Ayyad. Tous droits réservés. <strong>Yahya Ajabli</strong></p>
     </div>
 </footer>
+<script>
+    const menuBtn = document.getElementById('menu-icon');
+    const navList = document.getElementById('nav-links');
 
+    menuBtn.addEventListener('click', () => {
+        navList.classList.toggle('active');
+    });
+</script>
 </body>
 </html>

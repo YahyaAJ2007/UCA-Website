@@ -3,7 +3,7 @@
 <head>
     <meta name="author" content="Yahya Ajabli">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Université Cadi Ayyad - Accueil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -17,8 +17,8 @@
             <img src="images.jpg" class="logo-img">
             <span class="logo-text">Université Cadi Ayyad</span>
         </div>
-
-        <ul class="nav-links">
+        <button class="menu-icon" id="menu-icon"><i class="fa-solid fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="faculties.html">Facultés</a></li>
             <li><a href="admission.html">Admission</a></li>
@@ -102,6 +102,14 @@
 </div>
 
 <script>
+
+const menuBtn = document.getElementById('menu-icon');
+    const navList = document.getElementById('nav-links');
+
+    menuBtn.addEventListener('click', () => {
+        navList.classList.toggle('active');
+    });
+
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
@@ -155,6 +163,8 @@ function openStatsModal() {
 function closeStatsModal() {
     document.getElementById("statsModal").style.display = "none";
 }
+
+
 </script>
 
 <footer class="main-footer">
@@ -219,6 +229,5 @@ function closeStatsModal() {
         <p>&copy; 2026 Université Cadi Ayyad. Tous droits réservés. <strong>Yahya Ajabli</strong></p>
     </div>
 </footer>
-
 </body>
 </html>
