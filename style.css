@@ -720,6 +720,16 @@ body {
     color: #777;
 }
 
+.footer-column.links {
+    position: relative; 
+    z-index: 20;        
+}
+
+.footer-column.links a {
+    position: relative;
+    z-index: 21;
+    cursor: pointer;    
+}
 
 @media screen and (max-width: 768px) {
     .nav-links {
